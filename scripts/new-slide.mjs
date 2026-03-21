@@ -38,6 +38,9 @@ await fs.mkdir(deckDir, { recursive: false }).catch((error) => {
 const starterDeck = `---
 theme: default
 title: ${requestedTitle}
+description: A short summary shown on the landing page.
+author: Your Name
+tags: [draft]
 ---
 
 # ${requestedTitle}

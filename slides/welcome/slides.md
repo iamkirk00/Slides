@@ -1,6 +1,9 @@
 ---
 theme: default
 title: Welcome Deck
+description: Quick orientation for how this repository publishes multiple Slidev decks.
+author: Repository Maintainer
+tags: [intro, workflow]
 ---
 
 # Welcome Deck

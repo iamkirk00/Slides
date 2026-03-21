@@ -54,6 +54,13 @@ This creates:
 slides/my-new-deck/slides.md
 ```
 
+The starter frontmatter includes fields used on the landing page cards:
+
+- `title`
+- `description`
+- `author`
+- `tags`
+
 ## Author and run Slidev locally
 
 - Open and edit any `slides/<deck-name>/slides.md`
@@ -75,3 +82,8 @@ slides/my-new-deck/slides.md
 - Deck: `https://<owner>.github.io/<repo>/slides/<deck-name>/`
 
 If this is a user/organization pages repository (`<owner>.github.io`), the repo segment may be omitted.
+
+## Example decks in this repo
+
+- `slides/welcome/slides.md`
+- `slides/about-me/slides.md` (editable profile template)
