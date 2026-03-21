@@ -1,0 +1,15 @@
+{
+  "name": "slides-hub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing page and multi-deck Slidev build for GitHub Pages",
+  "scripts": {
+    "build:site": "node scripts/build-site.mjs",
+    "new-slide": "node scripts/new-slide.mjs",
+    "slide:dev": "slidev"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^52.9.0",
+    "@slidev/theme-default": "^0.25.0"
+  }
+}
