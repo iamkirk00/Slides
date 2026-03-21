@@ -167,9 +167,58 @@ const ensureArray = (value) => {
   return [];
 };
 
-const countSlides = (body) => {
-  const separators = body.match(/^---$/gm)?.length ?? 0;
-  return Math.max(1, separators + 1);
+const extractSlideSections = (body) => {
+  const lines = body.replaceAll('\r\n', '\n').split('\n');
+  const sections = [];
+  let buffer = [];
+
+  for (const line of lines) {
+    if (line.trim() === '---') {
+      sections.push(buffer.join('\n'));
+      buffer = [];
+      continue;
+    }
+    buffer.push(line);
+  }
+
+  sections.push(buffer.join('\n'));
+  return sections.filter((section) => section.trim().length > 0);
+};
+
+const normalizeHeadingText = (text) =>
+  text
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/[*_~]/g, '')
+    .trim();
+
+const pickSlideLabel = (section, index) => {
+  const lines = section.split('\n').map((line) => line.trim());
+  const heading = lines.find((line) => /^#{1,6}\s+/.test(line));
+  if (heading) {
+    const normalized = normalizeHeadingText(heading.replace(/^#{1,6}\s+/, ''));
+    if (normalized) {
+      return normalized;
+    }
+  }
+
+  const firstText = lines.find((line) => {
+    if (!line) {
+      return false;
+    }
+    if (line === '---' || line.startsWith('```')) {
+      return false;
+    }
+    return true;
+  });
+  if (firstText) {
+    const normalized = normalizeHeadingText(firstText);
+    if (normalized) {
+      return normalized;
+    }
+  }
+
+  return `Slide ${index + 1}`;
 };
 
 const formatDate = (dateValue) =>
@@ -194,13 +243,18 @@ const readDeckMetadata = async (markdownPath, fallbackTitle) => {
       ? frontmatter.author.trim()
       : '';
   const tags = ensureArray(frontmatter.tags).slice(0, 5);
+  const slideItems = extractSlideSections(body).map((section, index) => ({
+    no: index + 1,
+    label: pickSlideLabel(section, index),
+  }));
 
   return {
     title,
     description,
     author,
     tags,
-    slides: countSlides(body),
+    slides: slideItems.length,
+    slideItems,
   };
 };
 
@@ -276,16 +330,16 @@ const buildLandingPage = (decks) => {
         border-radius: 0.95rem;
         background: rgba(15, 23, 42, 0.82);
         transition: transform 140ms ease, border-color 140ms ease;
-      }
-      .card a {
-        display: block;
-        color: inherit;
-        text-decoration: none;
-        padding: 1.1rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
       }
       .card:hover {
         transform: translateY(-2px);
         border-color: rgba(191, 219, 254, 0.55);
+      }
+      .card-content {
+        padding: 1.1rem;
       }
       .card-title {
         display: block;
@@ -306,6 +360,75 @@ const buildLandingPage = (decks) => {
         gap: 0.45rem;
         color: #93c5fd;
         font-size: 0.83rem;
+      }
+      .deck-actions {
+        margin-top: 0.9rem;
+        display: flex;
+        gap: 0.55rem;
+      }
+      .deck-link {
+        display: inline-block;
+        text-decoration: none;
+        color: #0f172a;
+        background: linear-gradient(135deg, #bfdbfe, #93c5fd);
+        border-radius: 0.5rem;
+        font-weight: 600;
+        font-size: 0.82rem;
+        padding: 0.4rem 0.65rem;
+      }
+      .deck-link.secondary {
+        color: #dbeafe;
+        background: rgba(30, 41, 59, 0.95);
+        border: 1px solid rgba(148, 163, 184, 0.35);
+      }
+      .slide-nav {
+        border-top: 1px solid rgba(148, 163, 184, 0.25);
+        padding: 0.9rem 1.1rem 1rem;
+      }
+      .slide-nav-title {
+        font-size: 0.78rem;
+        color: #94a3b8;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-bottom: 0.45rem;
+      }
+      .slide-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 0.35rem;
+      }
+      .slide-link {
+        text-decoration: none;
+        color: #dbeafe;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: 1px solid rgba(148, 163, 184, 0.26);
+        border-radius: 0.45rem;
+        padding: 0.36rem 0.42rem;
+        background: rgba(30, 41, 59, 0.6);
+      }
+      .slide-link:hover {
+        border-color: rgba(191, 219, 254, 0.65);
+        background: rgba(37, 99, 235, 0.24);
+      }
+      .slide-no {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 1.45rem;
+        height: 1.45rem;
+        border-radius: 0.35rem;
+        font-size: 0.74rem;
+        font-weight: 700;
+        color: #0f172a;
+        background: linear-gradient(135deg, #bfdbfe, #93c5fd);
+      }
+      .slide-label {
+        font-size: 0.86rem;
+        line-height: 1.3;
       }
       .tag-list {
         margin-top: 0.85rem;
@@ -340,30 +463,33 @@ const buildLandingPage = (decks) => {
       <section class="hero">
         <h1>Slide Deck Hub</h1>
         <p>
-          Explore and present every Slidev deck published from this repository.
-          New deck folders at <code>slides/&lt;deck-name&gt;/slides.md</code> are discovered automatically.
+          Browse your published decks and jump directly into any slide.
+          Use this as your presentation navigation page.
         </p>
         <div class="hero-meta">
           <span class="pill">${decks.length} deck${decks.length === 1 ? '' : 's'}</span>
           <span class="pill">${totalSlides} total slide${totalSlides === 1 ? '' : 's'}</span>
           <span class="pill">Updated ${updatedAt}</span>
-          <span class="pill">Create: <code>npm run new-slide -- "Deck Name"</code></span>
         </div>
       </section>
       ${
         decks.length === 0
-          ? `<section class="empty">No decks found yet. Create your first one with <code>npm run new-slide -- "My First Deck"</code>.</section>`
+          ? `<section class="empty">No decks published yet.</section>`
           : `<ul class="grid">
 ${decks
   .map(
     (deck) => `          <li class="card">
-            <a href="${deck.url}">
+            <div class="card-content">
               <span class="card-title">${escapeHtml(deck.title)}</span>
               <span class="card-description">${escapeHtml(deck.description)}</span>
               <span class="card-meta">
                 <span>${deck.slides} slide${deck.slides === 1 ? '' : 's'}</span>
                 <span>Updated ${escapeHtml(deck.updatedAt)}</span>
                 ${deck.author ? `<span>Author ${escapeHtml(deck.author)}</span>` : ''}
+              </span>
+              <span class="deck-actions">
+                <a class="deck-link" href="${deck.startUrl}">Start presentation</a>
+                <a class="deck-link secondary" href="${deck.url}">Deck home</a>
               </span>
               ${
                 deck.tags.length > 0
@@ -372,7 +498,22 @@ ${decks
                       .join('')}</span>`
                   : ''
               }
-            </a>
+            </div>
+            <div class="slide-nav">
+              <div class="slide-nav-title">Slides</div>
+              <ul class="slide-list">
+${deck.slideItems
+  .map(
+    (slide) => `                <li>
+                  <a class="slide-link" href="${deck.url}${slide.no}">
+                    <span class="slide-no">${slide.no}</span>
+                    <span class="slide-label">${escapeHtml(slide.label)}</span>
+                  </a>
+                </li>`
+  )
+  .join('\n')}
+              </ul>
+            </div>
           </li>`
   )
   .join('\n')}
@@ -417,6 +558,7 @@ const main = async () => {
     decks.push({
       slug,
       url: `./slides/${slug}/`,
+      startUrl: `./slides/${slug}/1`,
       updatedAt: formatDate(markdownStat.mtime),
       ...metadata,
     });
