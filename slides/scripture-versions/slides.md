@@ -46,6 +46,25 @@ This **is**:
 
 ---
 
+# What are my options?
+
+By reading level, these translations are:
+Ninth through 11th grades:
+ - English Standard Version (ESV)
+ - New Revised Standard Version (NRSV)
+
+Sixth through eighth grades:
+ - New International Version (NIV)
+ - New Living Translation (NLT)
+ - New King James Version (NKJV)
+
+Third grade:
+New International Reader's Version (NIrV)
+
+link: [Blue Letter Bible](https://www.blueletterbible.org/)
+
+---
+
 # Why This Matters
 
 Some students struggle with:
