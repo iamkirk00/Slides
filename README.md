@@ -86,4 +86,5 @@ If this is a user/organization pages repository (`<owner>.github.io`), the repo 
 ## Example decks in this repo
 
 - `slides/welcome/slides.md`
+- `slides/about-me/slides.md` (editable profile template)
 - `slides/scripture-versions/slides.md` (translation comparison example)
