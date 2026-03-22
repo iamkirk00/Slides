@@ -7,6 +7,7 @@ Yes, this is possible, and this repository is now set up to do it.
 - Uses **one landing page** (`dist/index.html`) as a central directory of decks
 - Stores each deck in its own folder at `slides/<deck-name>/slides.md`
 - Builds each deck to a public folder at `dist/slides/<deck-name>/`
+- Adds direct **Export** links (print mode) for each deck and slide from the landing page
 - Deploys everything to **GitHub Pages** using a workflow on `main`
 
 When someone clicks a deck link on the landing page, Slidev opens that deck in presentation mode from a public URL.

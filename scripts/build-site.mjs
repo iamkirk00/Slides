@@ -364,6 +364,7 @@ const buildLandingPage = (decks) => {
       .deck-actions {
         margin-top: 0.9rem;
         display: flex;
+        flex-wrap: wrap;
         gap: 0.55rem;
       }
       .deck-link {
@@ -411,6 +412,29 @@ const buildLandingPage = (decks) => {
         background: rgba(30, 41, 59, 0.6);
       }
       .slide-link:hover {
+        border-color: rgba(191, 219, 254, 0.65);
+        background: rgba(37, 99, 235, 0.24);
+      }
+      .slide-item {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .slide-item .slide-link {
+        flex: 1;
+      }
+      .slide-export {
+        text-decoration: none;
+        color: #dbeafe;
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        border-radius: 0.45rem;
+        padding: 0.34rem 0.48rem;
+        font-size: 0.75rem;
+        line-height: 1;
+        background: rgba(15, 23, 42, 0.95);
+        white-space: nowrap;
+      }
+      .slide-export:hover {
         border-color: rgba(191, 219, 254, 0.65);
         background: rgba(37, 99, 235, 0.24);
       }
@@ -490,6 +514,7 @@ ${decks
               <span class="deck-actions">
                 <a class="deck-link" href="${deck.startUrl}">Start presentation</a>
                 <a class="deck-link secondary" href="${deck.url}">Deck home</a>
+                <a class="deck-link secondary" href="${deck.startUrl}?print=true">Export deck</a>
               </span>
               ${
                 deck.tags.length > 0
@@ -503,14 +528,16 @@ ${decks
               <div class="slide-nav-title">Slides</div>
               <ul class="slide-list">
 ${deck.slideItems
-  .map(
-    (slide) => `                <li>
-                  <a class="slide-link" href="${deck.url}${slide.no}">
+  .map((slide) => {
+    const slideUrl = `${deck.url}${slide.no}`;
+    return `                <li class="slide-item">
+                  <a class="slide-link" href="${slideUrl}">
                     <span class="slide-no">${slide.no}</span>
                     <span class="slide-label">${escapeHtml(slide.label)}</span>
                   </a>
-                </li>`
-  )
+                  <a class="slide-export" href="${slideUrl}?print=true">Export</a>
+                </li>`;
+  })
   .join('\n')}
               </ul>
             </div>
