@@ -585,7 +585,8 @@ const main = async () => {
         continue;
       }
 
-      const markdownPath = path.join(slidesDir, rawName, 'slides.md');
+      const sourceDeckDir = path.join(slidesDir, rawName);
+      const markdownPath = path.join(sourceDeckDir, 'slides.md');
       if (!(await pathExists(markdownPath))) {
         continue;
       }
@@ -594,8 +595,10 @@ const main = async () => {
       const markdownStat = await fs.stat(markdownPath);
       const outDir = path.join(distSlidesDir, slug);
       const markdownContent = await fs.readFile(markdownPath, 'utf8');
-      const tempInputPath = path.join(tempInputDir, `${slug}.slides.md`);
+      const tempDeckDir = path.join(tempInputDir, slug);
+      const tempInputPath = path.join(tempDeckDir, 'slides.md');
 
+      await fs.cp(sourceDeckDir, tempDeckDir, { recursive: true });
       await fs.writeFile(tempInputPath, forceHashRouterMode(markdownContent), 'utf8');
 
       console.log(`Building ${rawName} -> dist/slides/${slug}`);

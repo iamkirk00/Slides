@@ -13,6 +13,7 @@ secondaryAccent: "#14B8A6"
 
 # choose "light" or "dark"
 mode: dark
+colorSchema: dark
 ---
 
 <style>
@@ -23,9 +24,15 @@ mode: dark
   --accent-secondary: #14B8A6;
 }
 
-.slidev-layout {
+/* Slidev applies the `dark` class to html when colorSchema is dark. */
+html.dark .slidev-layout {
   background-color: var(--bg-dark);
   color: #E5E7EB;
+}
+
+html:not(.dark) .slidev-layout {
+  background-color: var(--bg-light);
+  color: #0F172A;
 }
 
 .accent {
@@ -37,10 +44,17 @@ mode: dark
 }
 
 .card {
-  background: rgba(255,255,255,0.05);
   border-radius: 16px;
   padding: 18px;
   backdrop-filter: blur(6px);
+}
+
+html.dark .card {
+  background: rgba(255,255,255,0.05);
+}
+
+html:not(.dark) .card {
+  background: rgba(15,23,42,0.06);
 }
 
 .fade-in {
