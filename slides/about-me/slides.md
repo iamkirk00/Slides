@@ -1,74 +1,247 @@
 ---
 theme: default
-title: About Me
-description: A reusable Slidev example deck for introducing yourself.
-author: Your Name
-tags: [profile, intro, template]
+title: About Kirk Howcroft
+description: Enterprise architecture, workplace experience, and CRE technology profile.
+author: Kirk Howcroft
+tags: [about-me, enterprise-architecture, ai]
+
+# COLOR CONFIGURATION (EDIT THESE)
+backgroundLight: "#F7F9FB"
+backgroundDark: "#0F172A"
+primaryAccent: "#2563EB"
+secondaryAccent: "#14B8A6"
+
+# choose "light" or "dark"
+mode: dark
+colorSchema: dark
 ---
 
-# About Me
+<style>
+:root {
+  --bg-light: #F7F9FB;
+  --bg-dark: #0F172A;
+  --accent-primary: #2563EB;
+  --accent-secondary: #14B8A6;
+}
 
-### Your Name
-Role or tagline goes here
+/* Slidev applies the `dark` class to html when colorSchema is dark. */
+html.dark .slidev-layout {
+  background-color: var(--bg-dark);
+  color: #E5E7EB;
+}
+
+html:not(.dark) .slidev-layout {
+  background-color: var(--bg-light);
+  color: #0F172A;
+}
+
+.accent {
+  color: var(--accent-primary);
+}
+
+.accent-soft {
+  color: var(--accent-secondary);
+}
+
+.card {
+  border-radius: 16px;
+  padding: 18px;
+  backdrop-filter: blur(6px);
+}
+
+html.dark .card {
+  background: rgba(255,255,255,0.05);
+}
+
+html:not(.dark) .card {
+  background: rgba(15,23,42,0.06);
+}
+
+.fade-in {
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+.timeline-item {
+  border-left: 3px solid var(--accent-primary);
+  padding-left: 16px;
+  margin-bottom: 16px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0 }
+  to { transform: translateY(0); opacity: 1 }
+}
+</style>
 
 ---
 
-# Quick Intro
+layout: two-cols
+class: items-center
+---
 
-- I am based in `City, Country`
-- I currently work as `Your Role`
-- I focus on `Your core skills`
-- I am passionate about `What motivates you`
+# Kirk Howcroft
+### Enterprise Architecture • Workplace Experience • CRE Technology
+
+::left::
+
+<img
+src="./kirk.jpg"
+class="rounded-2xl shadow-lg w-64 mx-auto fade-in"
+/>
+
+<div class="text-center mt-3 text-sm opacity-70 slide-up">
+Curious before critical • Innovative, not just creative • Practical in all things
+</div>
+
+::right::
+
+<div class="card slide-up">
+
+## What I Do
+
+I design intelligent workplace and operational systems that help organizations scale, adapt, and improve employee experience.
+
+- Workplace Experience Platforms
+- Integrated Workplace Management Systems (IWMS)
+- Corporate Real Estate Technology
+- Enterprise Workflow Architecture
+- Operational Intelligence Systems
+
+</div>
+
+<div class="card mt-4 slide-up">
+
+## How I Approach Problems
+
+- Understand the system beneath the problem
+- Simplify architecture and workflows
+- Balance innovation with practicality
+- Design for scale and adaptability
+- Enable organizations to operate intelligently
+
+</div>
 
 ---
 
-# My Journey So Far
+layout: default
+---
 
-1. `Year` - Started in `industry or discipline`
-2. `Year` - Joined `company or project`
-3. `Year` - Led `impactful initiative`
-4. `Today` - Building `what you are currently focused on`
+# Professional Journey
+
+<div class="fade-in">
+
+<div class="timeline-item card">
+
+### Enterprise Architecture & Platform Strategy
+Designing scalable enterprise solutions across workplace and operational platforms.
+
+</div>
+
+<div class="timeline-item card">
+
+### Workplace Experience & IWMS
+Implementing systems that unify facilities, services, and employee experience.
+
+</div>
+
+<div class="timeline-item card">
+
+### Corporate Real Estate Technology
+Connecting property, operations, and digital platforms into cohesive ecosystems.
+
+</div>
+
+<div class="timeline-item card">
+
+### AI & Organizational Intelligence
+Exploring AI-driven knowledge systems and intelligent workflow automation.
+
+</div>
+
+</div>
 
 ---
 
-# What I Do Best
+layout: default
+---
 
-- `Strength #1` - one sentence of impact
-- `Strength #2` - one sentence of impact
-- `Strength #3` - one sentence of impact
+# AI Innovation & Exploration
+
+<div class="grid grid-cols-2 gap-4">
+
+<div class="card slide-up">
+
+### AI-Augmented Knowledge Systems
+Building intelligent repositories that capture and surface organizational insight.
+
+</div>
+
+<div class="card slide-up">
+
+### Intelligent Workflow Automation
+Using AI to improve operational decision-making and reduce friction.
+
+</div>
+
+<div class="card slide-up">
+
+### Platform Intelligence
+Embedding AI into enterprise platforms to enhance workplace experiences.
+
+</div>
+
+<div class="card slide-up">
+
+### Human + AI Collaboration
+Designing systems that amplify human capability rather than replace it.
+
+</div>
+
+</div>
 
 ---
 
-# Highlights and Wins
+layout: center
+---
 
-## Recent accomplishments
+<div class="fade-in text-center">
 
-- Increased `metric` by `X%` through `initiative`
-- Launched `project or product` for `audience`
-- Mentored `team or community` in `topic`
+# Building Intelligent Workplace Systems
+
+<div class="mt-4 accent-soft">
+Enterprise Architecture • CRE Technology • AI Innovation
+</div>
+
+</div>
 
 ---
 
-# How I Work
-
-- Communication style: `concise / collaborative / async-first`
-- Team values: `trust, ownership, feedback`
-- Preferred workflow: `plan -> execute -> iterate`
-
+layout: center
 ---
 
-# Outside of Work
+# Where I'm Focused Next
 
-- `Hobby or interest #1`
-- `Hobby or interest #2`
-- `Cause or community involvement`
+<div class="fade-in">
 
----
+## Intelligent Organizations
+Systems that learn, adapt, and evolve.
 
-# Let's Connect
+## Workplace Experience Platforms
+Technology that improves how people interact with space and services.
 
-- Email: `your.name@example.com`
-- LinkedIn: `linkedin.com/in/your-handle`
-- GitHub: `github.com/your-handle`
+## Connected CRE Ecosystems
+Integrating IWMS, service platforms, and operational data.
 
-Thank you!
+## AI-Driven Operational Insight
+Turning knowledge into actionable intelligence.
+
+</div>
