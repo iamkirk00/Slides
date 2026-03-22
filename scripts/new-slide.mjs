@@ -37,6 +37,7 @@ await fs.mkdir(deckDir, { recursive: false }).catch((error) => {
 
 const starterDeck = `---
 theme: default
+routerMode: hash
 title: ${requestedTitle}
 description: A short summary shown on the landing page.
 author: Your Name

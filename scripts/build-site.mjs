@@ -49,6 +49,46 @@ const runCommand = (command, args) =>
     });
   });
 
+const forceHashRouterMode = (content) => {
+  const normalized = content.replaceAll('\r\n', '\n');
+
+  if (!normalized.startsWith('---\n')) {
+    return `---\nrouterMode: hash\n---\n\n${normalized}`;
+  }
+
+  const lines = normalized.split('\n');
+  if (lines[0].trim() !== '---') {
+    return `---\nrouterMode: hash\n---\n\n${normalized}`;
+  }
+
+  let closingLine = -1;
+  for (let i = 1; i < lines.length; i += 1) {
+    if (lines[i].trim() === '---') {
+      closingLine = i;
+      break;
+    }
+  }
+
+  if (closingLine === -1) {
+    return `---\nrouterMode: hash\n---\n\n${normalized}`;
+  }
+
+  let hasRouterMode = false;
+  for (let i = 1; i < closingLine; i += 1) {
+    if (/^\s*routerMode\s*:/.test(lines[i])) {
+      lines[i] = 'routerMode: hash';
+      hasRouterMode = true;
+      break;
+    }
+  }
+
+  if (!hasRouterMode) {
+    lines.splice(closingLine, 0, 'routerMode: hash');
+  }
+
+  return lines.join('\n');
+};
+
 const parseValue = (rawValue) => {
   const value = rawValue.trim();
   if (!value) {
@@ -505,7 +545,7 @@ ${decks
 ${deck.slideItems
   .map(
     (slide) => `                <li>
-                  <a class="slide-link" href="${deck.url}${slide.no}">
+                  <a class="slide-link" href="${deck.url}#/${slide.no}">
                     <span class="slide-no">${slide.no}</span>
                     <span class="slide-label">${escapeHtml(slide.label)}</span>
                   </a>
@@ -536,32 +576,41 @@ const main = async () => {
   const entries = await fs.readdir(slidesDir, { withFileTypes: true });
   const deckDirs = entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort();
   const decks = [];
+  const tempInputDir = await fs.mkdtemp(path.join(rootDir, '.slidev-build-'));
 
-  for (const rawName of deckDirs) {
-    const slug = slugify(rawName);
-    if (!slug) {
-      continue;
+  try {
+    for (const rawName of deckDirs) {
+      const slug = slugify(rawName);
+      if (!slug) {
+        continue;
+      }
+
+      const markdownPath = path.join(slidesDir, rawName, 'slides.md');
+      if (!(await pathExists(markdownPath))) {
+        continue;
+      }
+
+      const metadata = await readDeckMetadata(markdownPath, rawName);
+      const markdownStat = await fs.stat(markdownPath);
+      const outDir = path.join(distSlidesDir, slug);
+      const markdownContent = await fs.readFile(markdownPath, 'utf8');
+      const tempInputPath = path.join(tempInputDir, `${slug}.slides.md`);
+
+      await fs.writeFile(tempInputPath, forceHashRouterMode(markdownContent), 'utf8');
+
+      console.log(`Building ${rawName} -> dist/slides/${slug}`);
+      await runCommand('npx', ['slidev', 'build', tempInputPath, '--out', outDir, '--base', './']);
+
+      decks.push({
+        slug,
+        url: `./slides/${slug}/`,
+        startUrl: `./slides/${slug}/#/1`,
+        updatedAt: formatDate(markdownStat.mtime),
+        ...metadata,
+      });
     }
-
-    const markdownPath = path.join(slidesDir, rawName, 'slides.md');
-    if (!(await pathExists(markdownPath))) {
-      continue;
-    }
-
-    const metadata = await readDeckMetadata(markdownPath, rawName);
-    const markdownStat = await fs.stat(markdownPath);
-    const outDir = path.join(distSlidesDir, slug);
-
-    console.log(`Building ${rawName} -> dist/slides/${slug}`);
-    await runCommand('npx', ['slidev', 'build', markdownPath, '--out', outDir, '--base', './']);
-
-    decks.push({
-      slug,
-      url: `./slides/${slug}/`,
-      startUrl: `./slides/${slug}/1`,
-      updatedAt: formatDate(markdownStat.mtime),
-      ...metadata,
-    });
+  } finally {
+    await fs.rm(tempInputDir, { recursive: true, force: true });
   }
 
   decks.sort((a, b) => a.title.localeCompare(b.title, 'en'));
