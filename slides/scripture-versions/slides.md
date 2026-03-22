@@ -114,7 +114,6 @@ When teaching a verse:
 
 # Example 1 - Luke 14:26 (Discipleship)
 
-```text
 +----------------------------------+    +----------------------------------+
 |               KJV                |    |               NLT                |
 +----------------------------------+    +----------------------------------+
@@ -126,7 +125,6 @@ When teaching a verse:
 | my disciple."                    |    | your own life. Otherwise, you    |
 |                                  |    | cannot be my disciple."          |
 +----------------------------------+    +----------------------------------+
-```
 
 Potential Misunderstanding:
 Jesus commands literal hatred
@@ -138,7 +136,6 @@ Christ must come first in priority
 
 # Example 2 - Exodus 32:14 (Nature of God)
 
-```text
 +----------------------------------+    +----------------------------------+
 |               KJV                |    |               NIV                |
 +----------------------------------+    +----------------------------------+
@@ -146,7 +143,6 @@ Christ must come first in priority
 | evil which he thought to do      |    | did not bring on his people      |
 | unto his people."                |    | the disaster he had threatened." |
 +----------------------------------+    +----------------------------------+
-```
 
 Potential Misunderstanding:
 God committed evil and repented
