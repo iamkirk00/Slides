@@ -87,4 +87,4 @@ If this is a user/organization pages repository (`<owner>.github.io`), the repo 
 
 - `slides/welcome/slides.md`
 - `slides/about-me/slides.md` (editable profile template)
-- `slides/scripture-versions/slides.md` (translation comparison example)
+- `slides/scripture-versions/slides.md` (teaching-with-clarity lesson + translation comparisons)
