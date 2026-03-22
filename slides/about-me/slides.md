@@ -6,6 +6,7 @@ author: Kirk Howcroft
 tags: [about-me, enterprise-architecture, ai]
 
 # COLOR CONFIGURATION (EDIT THESE)
+# Keep these values in sync with the :root CSS variables below.
 backgroundLight: "#F7F9FB"
 backgroundDark: "#0F172A"
 primaryAccent: "#2563EB"
