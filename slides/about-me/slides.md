@@ -6,6 +6,7 @@ author: Kirk Howcroft
 tags: [about-me, enterprise-architecture, ai]
 
 # COLOR CONFIGURATION (EDIT THESE)
+# Keep these values in sync with the :root CSS variables below.
 backgroundLight: "#F7F9FB"
 backgroundDark: "#0F172A"
 primaryAccent: "#2563EB"
@@ -14,6 +15,8 @@ secondaryAccent: "#14B8A6"
 # choose "light" or "dark"
 mode: dark
 colorSchema: dark
+layout: two-cols
+class: items-center
 ---
 
 <style>
@@ -82,12 +85,6 @@ html:not(.dark) .card {
 }
 </style>
 
----
-
-layout: two-cols
-class: items-center
----
-
 # Kirk Howcroft
 ### Enterprise Architecture • Workplace Experience • CRE Technology
 
@@ -131,7 +128,6 @@ I design intelligent workplace and operational systems that help organizations s
 </div>
 
 ---
-
 layout: default
 ---
 
@@ -170,7 +166,6 @@ Exploring AI-driven knowledge systems and intelligent workflow automation.
 </div>
 
 ---
-
 layout: default
 ---
 
@@ -209,7 +204,6 @@ Designing systems that amplify human capability rather than replace it.
 </div>
 
 ---
-
 layout: center
 ---
 
@@ -224,7 +218,6 @@ Enterprise Architecture • CRE Technology • AI Innovation
 </div>
 
 ---
-
 layout: center
 ---
 
