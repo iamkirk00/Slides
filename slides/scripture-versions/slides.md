@@ -27,6 +27,7 @@ From Church Handbook 38.8.40.1:
 # What are my options?
 
 By reading level, these translations are:
+  
   3rd grade:
   - New International Reader's Version (NIrV)
 
