@@ -24,8 +24,37 @@ From Church Handbook 38.8.40.1:
 
 ---
 
-# What This Is *Not*
+# What are my options?
 
+By reading level, these translations are:
+  3rd grade:
+  - New International Reader's Version (NIrV)
+
+  6th through 8th grades:
+  - New International Version (NIV)
+  - New Living Translation (NLT)
+  - New King James Version (NKJV)
+
+  9th through 11th grades:
+  - English Standard Version (ESV)
+  - New Revised Standard Version (NRSV)
+
+link: [Bible App](https://www.youversion.com/bible-app)
+
+---
+layout: two-cols-header
+---
+
+# What This *Is* & *Is Not*
+
+::left::
+This **is**:
+
+- Permission to increase understanding
+- An invitation to teach more effectively
+- A way to help youth engage with scripture
+
+::right::
 This is **not**:
 
 - Replacing the King James Version
@@ -33,35 +62,6 @@ This is **not**:
 - Changing doctrine
 
 The KJV remains our **foundation** in English-speaking settings.
-
----
-
-# What This *Is*
-
-This **is**:
-
-- Permission to increase understanding
-- An invitation to teach more effectively
-- A way to help youth engage with scripture
-
----
-
-# What are my options?
-
-By reading level, these translations are:
-Ninth through 11th grades:
- - English Standard Version (ESV)
- - New Revised Standard Version (NRSV)
-
-Sixth through eighth grades:
- - New International Version (NIV)
- - New Living Translation (NLT)
- - New King James Version (NKJV)
-
-Third grade:
-New International Reader's Version (NIrV)
-
-link: [Blue Letter Bible](https://www.blueletterbible.org/)
 
 ---
 
@@ -74,41 +74,6 @@ Some students struggle with:
 - Losing the message in the wording
 
 If they do not understand it, they cannot apply it.
-
----
-
-# The Teacher's Role
-
-As teachers, we now can:
-
-- Use another translation to clarify meaning
-- Compare wording to deepen understanding
-- Teach students how to study, not just read
-
----
-
-# Doctrinal Guardrails
-
-When wording differs, anchor interpretation in:
-
-- Book of Mormon
-- Doctrine and Covenants
-- Pearl of Great Price
-- Teachings of living prophets
-
-Clarity should always reinforce doctrine, never replace it.
-
----
-
-# A Simple Teaching Pattern
-
-When teaching a verse:
-
-1. Read it in the **KJV**
-2. Ask: "What is hard to understand?"
-3. Compare with another translation
-4. Ask: "What became clearer?"
-5. Confirm doctrine with standard works and prophetic teaching
 
 ---
 
@@ -156,35 +121,25 @@ God withheld a threatened consequence
 
 ---
 
-# Example Class Prompt
+# The Teacher's Role
 
-"Let's read this verse in the KJV first.  
-What words or phrases feel unclear?  
-Now let's compare another translation.  
-What meaning is easier to see?"
+As teachers, we now can:
 
-Then ask:
-
-- "How does this connect to what prophets teach?"
-- "How could we live this teaching this week?"
+- Use another translation to clarify meaning
+- Compare wording to deepen understanding
+- Teach students how to study, not just read
 
 ---
 
-# The Opportunity
+# Unexpected Correlation and final thought
 
-This is not just about translation.
+I asked GPT the question, "What is the single greatest value to an individual who can use multiple translations of the bible, such as KJV, NLT, ESV, or even NIrv?"
 
-It is about helping youth:
+GPT Answered many things... Two things I'll share: "
 
-- Actually understand scripture
-- Feel confident studying
-- Connect with Christ more clearly
+1. Single greatest value: "Clarity through contrast"
+2. And... "You move from reciting to wrestling"
 
----
+The word "wrestle" impacted me.  Multiple lessons have used/reviewed this phrase.
 
-# Final Thought
 
-Better understanding -> better teaching  
-Better teaching -> stronger conversion
-
-Clarity invites the Spirit to teach.
