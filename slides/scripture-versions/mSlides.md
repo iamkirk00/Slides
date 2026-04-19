@@ -5,7 +5,7 @@ description: Teaching with clarity in scripture using approved translation compa
 author: Sunday School Presidency
 tags: [scriptures, teaching, clarity, translations]
 transition: slide-left
-aspectRatio:9/16
+aspectRatio: 9/16
 ---
 
 # Scripture Versions
