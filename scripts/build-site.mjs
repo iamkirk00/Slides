@@ -425,6 +425,12 @@ const buildLandingPage = (decks) => {
         margin-bottom: 0.9rem;
         min-height: 2.9em;
       }
+      @media (max-width: 640px) {
+        .card-title {
+          font-size: 1.35rem;
+          line-height: 1.2;
+        }
+      }
       .card-meta {
         display: flex;
         flex-wrap: wrap;
