@@ -122,17 +122,29 @@ As teachers, we now can:
 # Example 1 - Luke 14:26 (Discipleship)
 
 ```text
-+----------------------------------+    +----------------------------------+
-|               KJV                |    |               NLT                |
-+----------------------------------+    +----------------------------------+
-| "If any man come to me, and      |    | "If you want to be my disciple,  |
-| hate not his father, and mother, |    | you must, by comparison, hate    |
-| and wife, and children, and      |    | everyone else--your father and   |
-| brethren, and sisters, yea, and  |    | mother, wife and children,       |
-| his own life also, he cannot be  |    | brothers and sisters--yes, even  |
-| my disciple."                    |    | your own life. Otherwise, you    |
-|                                  |    | cannot be my disciple."          |
-+----------------------------------+    +----------------------------------+
++----------------------------------+
+|               KJV                |
++----------------------------------+
+| "If any man come to me, and      |
+| hate not his father, and mother, |
+| and wife, and children, and      |
+| brethren, and sisters, yea, and  |
+| his own life also, he cannot be  |
+| my disciple."                    |
+|                                  |
++----------------------------------+
+
++----------------------------------+
+|               NLT                |
++----------------------------------+
+| "If you want to be my disciple,  |
+| you must, by comparison, hate    |
+| everyone else--your father and   |
+| mother, wife and children,       |
+| brothers and sisters--yes, even  |
+| your own life. Otherwise, you    |
+| cannot be my disciple."          |
++----------------------------------+
 ```
 
 Potential Misunderstanding:
