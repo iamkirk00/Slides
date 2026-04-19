@@ -266,6 +266,37 @@ const formatDate = (dateValue) =>
     dateStyle: 'medium',
   }).format(dateValue);
 
+const buildDeckVariant = async ({
+  sourceDeckDir,
+  tempInputDir,
+  deckSlug,
+  markdownFileName,
+  outSlug,
+}) => {
+  const markdownPath = path.join(sourceDeckDir, markdownFileName);
+  if (!(await pathExists(markdownPath))) {
+    return null;
+  }
+
+  const markdownContent = await fs.readFile(markdownPath, 'utf8');
+  const outDir = path.join(distSlidesDir, outSlug);
+  const tempDeckDir = path.join(tempInputDir, outSlug);
+  const tempInputPath = path.join(tempDeckDir, markdownFileName);
+
+  await fs.cp(sourceDeckDir, tempDeckDir, { recursive: true });
+  await fs.writeFile(tempInputPath, forceHashRouterMode(markdownContent), 'utf8');
+
+  console.log(`Building ${deckSlug}:${markdownFileName} -> dist/slides/${outSlug}`);
+  await runCommand('npx', ['slidev', 'build', tempInputPath, '--out', outDir, '--base', './']);
+
+  return {
+    markdownPath,
+    updatedAt: formatDate((await fs.stat(markdownPath)).mtime),
+    url: `./slides/${outSlug}/`,
+    startUrl: `./slides/${outSlug}/#/1`,
+  };
+};
+
 const readDeckMetadata = async (markdownPath, fallbackTitle) => {
   const content = await fs.readFile(markdownPath, 'utf8');
   const { frontmatter, body } = extractFrontmatterAndBody(content);
@@ -528,8 +559,12 @@ ${decks
                 ${deck.author ? `<span>Author ${escapeHtml(deck.author)}</span>` : ''}
               </span>
               <span class="deck-actions">
-                <a class="deck-link" href="${deck.startUrl}">Start presentation</a>
-                <a class="deck-link secondary" href="${deck.url}">Deck home</a>
+                <a class="deck-link" href="${deck.startUrl}">Desktop</a>
+                ${
+                  deck.mobileStartUrl
+                    ? `<a class="deck-link secondary" href="${deck.mobileStartUrl}">Mobile</a>`
+                    : ''
+                }
               </span>
               ${
                 deck.tags.length > 0
@@ -540,7 +575,7 @@ ${decks
               }
             </div>
             <div class="slide-nav">
-              <div class="slide-nav-title">Slides</div>
+              <div class="slide-nav-title">Desktop Slides</div>
               <ul class="slide-list">
 ${deck.slideItems
   .map(
@@ -586,29 +621,33 @@ const main = async () => {
       }
 
       const sourceDeckDir = path.join(slidesDir, rawName);
-      const markdownPath = path.join(sourceDeckDir, 'slides.md');
-      if (!(await pathExists(markdownPath))) {
+      const desktopVariant = await buildDeckVariant({
+        sourceDeckDir,
+        tempInputDir,
+        deckSlug: rawName,
+        markdownFileName: 'slides.md',
+        outSlug: slug,
+      });
+      if (!desktopVariant) {
         continue;
       }
 
-      const metadata = await readDeckMetadata(markdownPath, rawName);
-      const markdownStat = await fs.stat(markdownPath);
-      const outDir = path.join(distSlidesDir, slug);
-      const markdownContent = await fs.readFile(markdownPath, 'utf8');
-      const tempDeckDir = path.join(tempInputDir, slug);
-      const tempInputPath = path.join(tempDeckDir, 'slides.md');
-
-      await fs.cp(sourceDeckDir, tempDeckDir, { recursive: true });
-      await fs.writeFile(tempInputPath, forceHashRouterMode(markdownContent), 'utf8');
-
-      console.log(`Building ${rawName} -> dist/slides/${slug}`);
-      await runCommand('npx', ['slidev', 'build', tempInputPath, '--out', outDir, '--base', './']);
+      const metadata = await readDeckMetadata(desktopVariant.markdownPath, rawName);
+      const mobileVariant = await buildDeckVariant({
+        sourceDeckDir,
+        tempInputDir,
+        deckSlug: rawName,
+        markdownFileName: 'mSlides.md',
+        outSlug: `${slug}-m`,
+      });
 
       decks.push({
         slug,
-        url: `./slides/${slug}/`,
-        startUrl: `./slides/${slug}/#/1`,
-        updatedAt: formatDate(markdownStat.mtime),
+        url: desktopVariant.url,
+        startUrl: desktopVariant.startUrl,
+        updatedAt: desktopVariant.updatedAt,
+        mobileUrl: mobileVariant?.url ?? '',
+        mobileStartUrl: mobileVariant?.startUrl ?? '',
         ...metadata,
       });
     }
