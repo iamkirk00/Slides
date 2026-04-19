@@ -48,14 +48,14 @@ layout: two-cols-header
 
 # What This *Is* & *Is Not*
 
-::left::
+::right::
 This **is**:
 
 - Permission to increase understanding
 - An invitation to teach more effectively
 - A way to help youth engage with scripture
 
-::right::
+::left::
 This is **not**:
 
 - Replacing the King James Version
@@ -75,6 +75,16 @@ Some students struggle with:
 - Losing the message in the wording
 
 If they do not understand it, they cannot apply it.
+
+---
+
+# The Teacher's Role
+
+As teachers, we now can:
+
+- Use another translation to clarify meaning
+- Compare wording to deepen understanding
+- Teach students how to study, not just read
 
 ---
 
@@ -102,33 +112,19 @@ Christ must come first in priority
 
 ---
 
-# Example 2 - Exodus 32:14 (Nature of God)
+# Example 2 - Philippians 4:7 (Peace of God)
 
 ```text
-+----------------------------------+    +----------------------------------+
-|               KJV                |    |               NIV                |
-+----------------------------------+    +----------------------------------+
-| "And the LORD repented of the    |    | "Then the LORD relented and      |
-| evil which he thought to do      |    | did not bring on his people      |
-| unto his people."                |    | the disaster he had threatened." |
-+----------------------------------+    +----------------------------------+
++-----------------------------------+  +----------------------------------+  +----------------------------------+
+|               NIrV                |  |               KJV                |  |               NLT                |
++-----------------------------------+  +----------------------------------+  +----------------------------------+
+| "The peace of God is greater than |  | "And the pace of God, which      |  | "Then you will experience God's  |
+| what we can understand. His peace |  | passeth all understanding, shall |  | peace, which exceeds anything we |
+| will *guard* your hearts and your |  | *keep* your hearts and minds     |  | can understand. His peace will   |
+| minds in Christ Jesus."           |  | through Christ Jesus."           |  | guard your hearts and minds as   |
+|                                   |  |                                  |  | you live in Christ Jesus."       |
++-----------------------------------+  +----------------------------------+  +----------------------------------+
 ```
-
-Potential Misunderstanding:
-God committed evil and repented
-
-Clarified Meaning:
-God withheld a threatened consequence
-
----
-
-# The Teacher's Role
-
-As teachers, we now can:
-
-- Use another translation to clarify meaning
-- Compare wording to deepen understanding
-- Teach students how to study, not just read
 
 ---
 
@@ -143,4 +139,6 @@ GPT Answered many things... Two things I'll share: "
 
 The word "wrestle" impacted me.  Multiple lessons have used/reviewed this phrase.
 
+---
 
+# Any questions?  And thank you for being willing!
