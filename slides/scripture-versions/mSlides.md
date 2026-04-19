@@ -1,10 +1,11 @@
 ---
 theme: default
-title: Scripture Versions
+title: Scripture Versions (Mobile)
 description: Teaching with clarity in scripture using approved translation comparisons.
 author: Sunday School Presidency
 tags: [scriptures, teaching, clarity, translations]
 transition: slide-left
+aspectRatio:9/16
 ---
 
 # Scripture Versions
@@ -43,19 +44,17 @@ By reading level, these translations are:
 link: [Bible App](https://www.youversion.com/bible-app)
 
 ---
-layout: two-cols-header
----
 
 # What This *Is* & *Is Not*
 
-::right::
 This **is**:
 
 - Permission to increase understanding
 - An invitation to teach more effectively
 - A way to help youth engage with scripture
 
-::left::
+<br>
+
 This is **not**:
 
 - Replacing the King James Version
@@ -115,15 +114,31 @@ Christ must come first in priority
 # Example 2 - Philippians 4:7 (Peace of God)
 
 ```text
-+-----------------------------------+  +----------------------------------+  +----------------------------------+
-|               NIrV                |  |               KJV                |  |               NLT                |
-+-----------------------------------+  +----------------------------------+  +----------------------------------+
-| "The peace of God is greater than |  | "And the pace of God, which      |  | "Then you will experience God's  |
-| what we can understand. His peace |  | passeth all understanding, shall |  | peace, which exceeds anything we |
-| will *guard* your hearts and your |  | *keep* your hearts and minds     |  | can understand. His peace will   |
-| minds in Christ Jesus."           |  | through Christ Jesus."           |  | guard your hearts and minds as   |
-|                                   |  |                                  |  | you live in Christ Jesus."       |
-+-----------------------------------+  +----------------------------------+  +----------------------------------+
++-----------------------------------+ 
+|               NIrV                | 
++-----------------------------------+ 
+| "The peace of God is greater than | 
+| what we can understand. His peace | 
+| will *guard* your hearts and your | 
+| minds in Christ Jesus."           |
++-----------------------------------+ 
++-----------------------------------+ 
+|               KJV                 | 
++-----------------------------------+ 
+| "And the pace of God, which       | 
+| passeth all understanding, shall  | 
+| *keep* your hearts and minds      | 
+| through Christ Jesus."            | 
++-----------------------------------+ 
++-----------------------------------+
+|               NLT                 |
++-----------------------------------+
+| "Then you will experience God's   |
+| peace, which exceeds anything we  |
+| can understand. His peace will    |
+| guard your hearts and minds as    |
+| you live in Christ Jesus."        |
++-----------------------------------+
 ```
 
 ---
