@@ -36,6 +36,10 @@ canvasWidth: 800
 :root {
   --slidev-code-font-size: 0.95em;
   --slidev-code-line-height: 1.4;
+  font-size: 22px;
+}
+
+</style>
 }
 </style>
 
