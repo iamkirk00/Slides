@@ -6,7 +6,38 @@ author: Sunday School Presidency
 tags: [scriptures, teaching, clarity, translations]
 transition: slide-left
 aspectRatio: 9/16
+canvasWidth: 800
 ---
+
+<style>
+/* Scope custom typography to slide content only. */
+.slidev-layout {
+  line-height: 1.35;
+}
+
+.slidev-layout h1 {
+  font-size: clamp(2rem, 6vw, 2.8rem);
+}
+
+.slidev-layout h2 {
+  font-size: clamp(1.5rem, 4.8vw, 2.1rem);
+}
+
+.slidev-layout h3 {
+  font-size: clamp(1.25rem, 3.8vw, 1.6rem);
+}
+
+.slidev-layout p,
+.slidev-layout li,
+.slidev-layout blockquote {
+  font-size: clamp(1.05rem, 3.2vw, 1.35rem);
+}
+
+:root {
+  --slidev-code-font-size: 0.95em;
+  --slidev-code-line-height: 1.4;
+}
+</style>
 
 # Scripture Versions
 ### Teaching with Clarity in Scripture
