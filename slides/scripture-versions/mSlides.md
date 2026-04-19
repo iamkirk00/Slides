@@ -40,8 +40,6 @@ canvasWidth: 800
 }
 
 </style>
-}
-</style>
 
 # Scripture Versions
 ### Teaching with Clarity in Scripture
