@@ -6,7 +6,9 @@ Yes, this is possible, and this repository is now set up to do it.
 
 - Uses **one landing page** (`dist/index.html`) as a central directory of decks
 - Stores each deck in its own folder at `slides/<deck-name>/slides.md`
-- Builds each deck to a public folder at `dist/slides/<deck-name>/`
+- Optionally supports a mobile variant at `slides/<deck-name>/mSlides.md`
+- Builds desktop decks to `dist/slides/<deck-name>/`
+- Builds mobile variants to `dist/slides/<deck-name>-m/`
 - Deploys everything to **GitHub Pages** using a workflow on `main`
 
 When someone clicks a deck link on the landing page, Slidev opens that deck in presentation mode from a public URL.
@@ -63,7 +65,8 @@ The starter frontmatter includes fields used on the landing page cards:
 
 ## Author and run Slidev locally
 
-- Open and edit any `slides/<deck-name>/slides.md`
+- Open and edit desktop decks at `slides/<deck-name>/slides.md`
+- Optional mobile decks use `slides/<deck-name>/mSlides.md`
 - For live authoring of a specific deck:
 
   ```bash
@@ -79,7 +82,8 @@ The starter frontmatter includes fields used on the landing page cards:
 ### Resulting URLs
 
 - Landing page: `https://<owner>.github.io/<repo>/`
-- Deck: `https://<owner>.github.io/<repo>/slides/<deck-name>/`
+- Desktop deck: `https://<owner>.github.io/<repo>/slides/<deck-name>/`
+- Mobile deck (if present): `https://<owner>.github.io/<repo>/slides/<deck-name>-m/`
 
 If this is a user/organization pages repository (`<owner>.github.io`), the repo segment may be omitted.
 
@@ -88,3 +92,4 @@ If this is a user/organization pages repository (`<owner>.github.io`), the repo 
 - `slides/welcome/slides.md`
 - `slides/about-me/slides.md` (editable profile template)
 - `slides/scripture-versions/slides.md` (teaching-with-clarity lesson + translation comparisons)
+- `slides/scripture-versions/mSlides.md` (mobile variant)
