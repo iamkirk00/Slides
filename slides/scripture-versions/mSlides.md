@@ -30,7 +30,7 @@ canvasWidth: 800
 .slidev-layout p,
 .slidev-layout li,
 .slidev-layout blockquote {
-  font-size: clamp(1.05rem, 3.2vw, 1.35rem);
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
 }
 
 :root {
