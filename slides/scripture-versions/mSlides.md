@@ -12,33 +12,32 @@ canvasWidth: 800
 <style>
 /* Scope custom typography to slide content only. */
 .slidev-layout {
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 .slidev-layout h1 {
-  font-size: clamp(2rem, 6vw, 2.8rem);
+  font-size: clamp(2.4rem, 7vw, 3.2rem);
 }
 
 .slidev-layout h2 {
-  font-size: clamp(1.5rem, 4.8vw, 2.1rem);
+  font-size: clamp(1.8rem, 5.5vw, 2.5rem);
 }
 
 .slidev-layout h3 {
-  font-size: clamp(1.25rem, 3.8vw, 1.6rem);
+  font-size: clamp(1.4rem, 4.5vw, 1.9rem);
 }
 
 .slidev-layout p,
 .slidev-layout li,
 .slidev-layout blockquote {
-  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  font-size: clamp(1.35rem, 4.5vw, 1.7rem);
 }
 
 :root {
-  --slidev-code-font-size: 0.95em;
-  --slidev-code-line-height: 1.4;
-  font-size: 22px;
+  --slidev-code-font-size: 1.05em;
+  --slidev-code-line-height: 1.5;
+  font-size: 24px;
 }
-
 </style>
 
 # Scripture Versions
