@@ -190,9 +190,10 @@ Christ must come first in priority
 
 ---
 
-# Unexpected Correlation and final thought
+# Unexpected Correlation 
 
-- - - 
+and final thought
+ 
 I asked GPT the question, "What is the single greatest value to an individual who can use multiple translations of the bible, such as KJV, NLT, ESV, or even NIrv?"
 
 GPT Answered many things... Two things I'll share: "
