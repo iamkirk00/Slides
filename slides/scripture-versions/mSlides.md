@@ -205,4 +205,6 @@ The word "wrestle" impacted me.  Multiple lessons have used/reviewed this phrase
 
 ---
 
-# Any questions?  And thank you for being willing!
+# Any questions?  
+
+And thank you for being willing!
