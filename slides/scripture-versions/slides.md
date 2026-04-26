@@ -28,15 +28,15 @@ From Church Handbook 38.8.40.1:
 
 By reading level, these translations are:
   
-  3rd grade:
+  **3rd grade:**
   - New International Reader's Version (NIrV)
 
-  6th through 8th grades:
+  **6th through 8th grades:**
   - New International Version (NIV)
   - New Living Translation (NLT)
   - New King James Version (NKJV)
 
-  9th through 11th grades:
+  **9th through 11th grades:**
   - English Standard Version (ESV)
   - New Revised Standard Version (NRSV)
 
@@ -88,8 +88,9 @@ As teachers, we now can:
 
 ---
 
-# Example 1 - Luke 14:26 (Discipleship)
+# Example 1 - Luke 14:26 
 
+(Discipleship)
 ```text
 +----------------------------------+    +----------------------------------+
 |               KJV                |    |               NLT                |
@@ -112,8 +113,9 @@ Christ must come first in priority
 
 ---
 
-# Example 2 - Philippians 4:7 (Peace of God)
+# Example 2 - Philippians 4:7 
 
+(Peace of God)
 ```text
 +-----------------------------------+  +----------------------------------+  +----------------------------------+
 |               NIrV                |  |               KJV                |  |               NLT                |
@@ -130,6 +132,7 @@ Christ must come first in priority
 
 # Unexpected Correlation and final thought
 
+- - -
 I asked GPT the question, "What is the single greatest value to an individual who can use multiple translations of the bible, such as KJV, NLT, ESV, or even NIrv?"
 
 GPT Answered many things... Two things I'll share: "
